@@ -1,0 +1,15 @@
+<!-- Display Welcome notification when user successfully logs in -->
+{% extends "base.html" %}
+
+{% block welcome %}
+	<h2 class="text-center">Welcome, {{username}}!</h2>
+	<h4 class="text-center"> Get started on a new post <a href="/blog/newpost">HERE!</a> </h4>
+	<!-- <h4 class="text-center">Or View All posts <a href="/blog/viewall">HERE</a></h4> -->
+{% endblock %}
+
+{% block logout %}
+<h5 class="text-right">Not, {{username}}? </h2> <a href="/logout">Logout</a>
+{% endblock %}
+
+
+

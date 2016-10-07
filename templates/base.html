@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!-- Base HTML. Reused elements from Portfolio Project. -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- CSS -->
+		<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Google Font -->
+		<link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>UDACITY BLOG</title>
+	</head>
+		<body>
+			<div class="container">
+				<header class="row">
+					<div class="col-xs-2 half">
+						<a href="/"><img class="img-responsive title-logo" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAUNAAAAJGMyMjE0OTQxLTIzNDQtNDJhOC1hNWYzLWIxYWIzMTRkZWZlYw.png" alt="Udacity logo"></a>
+					</div>
+					<div class="col-xs-5 text-center text-uppercase title-text half">
+						<h1 class="text-thin title-super text-left">UDACITY BLOG</h1>
+						<h4 class="text-left">Full Stack Forums</h4>
+					</div>
+
+					<!-- Display Register, Login, or Logout fields -->
+					<div class="col-xs-5 text-right half" id="login">
+						{% block login %}
+						{% endblock %}
+						<br>
+						<span id="register">
+							{% block register %}
+							{% endblock %}
+	
+							{% block logout %}
+							{% endblock %}	
+
+							{% block front %}
+							{% endblock %}		
+						</span>
+					</div>
+				</header>
+			</div>
+				<!-- Horizontal Rule across -->
+				<div class="row">
+					<hr>
+				</div>
+				<!-- Welcome and Logged Out Notifications -->
+				<div id="welcome">
+					{% block welcome %}
+					{% endblock %}
+					{% block loggedout %}
+					{% endblock %}
+				</div>
+
+				<!-- Blog Banner -->
+				<section class="container">
+					<div class="col-xs-12">
+						<picture>
+							<img class="img-responsive blog-banner" src="http://lynnegarner.com/wp-content/uploads/2013/10/big-blog-banner-NEW8.jpg" alt="Main middle picture">
+						</picture>
+					</div>
+				</section>
+
+				<!-- Create a New Post section -->
+				<div class="container" id="post">
+					{% block newpost %}
+					{% endblock %}
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 center-text">
+						{% block create %}
+						{% endblock %}
+						
+						{% block viewall %}
+						{% endblock %}
+					</div>
+				</div>
+
+				<!-- Display Posts -->
+				<div class="container" id="content">
+					{% block content %}	
+					{% endblock %}
+				</div>
+		    </div>
+		
+			<footer class="text-center">
+				<hr>
+				<div class="container">
+					<img class="img-responsive footer-banner" src="http://www.abcoelectrical.com/application/files/8114/7395/1096/Banner-Blog.jpg" alt="Main middle picture">
+				</div>
+				<!-- Deadlinks, text for aesthetics/authenticity -->
+				<a href="#">Disclaimer  </a>|
+				<a href="#"> Privacy Policy  </a>|
+				<a href="#"> Terms of Conditions </a>
+			</footer>
+		</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- Display when no user is logged in -->
+{% extends "base.html" %}
+
+{% block front %}
+	<a href="/login"><h4>Login</h4></a>
+	Not a member yet? <a href="/register">Register</a>
+{% endblock %}
+
+{% block content %}
+	<h2 class="text-muted text-center">Latest Posts</h2>
+	{% for p in posts %}
+    	{{ p.render() | safe }}
+    	<br><br>
+  	{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+

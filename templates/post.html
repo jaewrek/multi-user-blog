@@ -1,0 +1,19 @@
+<!-- Display Post Content -->
+
+{% block content %}
+ <div class="post">
+  <div class="post-heading">
+    <div class="post-title">
+    {{error}}
+     <a href="/blog/{{p.key().id()}}"><h3> {{p.subject}}  <h6>by  {{p.username}}</h6></h3></a>
+    </div>
+    <div class="post-date">
+      <h5>{{p.created.strftime("%b %d, '%y")}}</h5>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <h5>{{p._render_text | safe}}</h5>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+<!-- Layout for BlogPost with Comments, Likes, and appropriate Edit/Delete icons -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-7">
+
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    {{error}}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-xs-12">
+
+            <a id="post-delete" style="color:red" class="icon pull-right" href="/blog/deletepost/{{post.key().id()}}"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <a id="post-edit" style="color: black" class="icon pull-right" href="/blog/editpost/{{post.key().id()}}"><i class="fa fa-pencil-square-o aria-hidden="true"></i></a>
+            {{post.render() | safe}}
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="sub-work col-md-12">
+            <form method="post" role="form">
+                <input type="hidden" class="form-control" id="like" name="like" value="update">
+                <button type="submit"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{numLikes}}</button>
+            </form>
+        </div>
+
+        <div class="sub-work col-md-12">
+            <form method="post" role="form" class="comment-form">
+                <div class="form-group">
+                    <label for="comment">Comment Below! <i class="fa fa-comment" aria-hidden="true"></i></label>
+                    <input type="text" class="form-control" id="comment" name="comment" value="">
+                </div>
+                <button type="submit"><i class="fa fa-share" aria-hidden="true"></i>  Comment</button>
+            </form>
+        </div>
+
+        <div class="col-xs-12 comment-list">
+            {% for c in comments %}
+            	<div class="panel panel-default">
+            		<div class="panel-body">
+            			<header class="text-left">
+							<div class="comment-user">
+								<i class="fa fa-user"></i>
+								{{ c.getUserName() }}
+								 <a class="pull-right" style="color:red" href="/blog/deletecomment/{{post.key().id()}}/{{c.key().id()}}"><i class="fa fa-times" aria-hidden="true"></i></a>
+		                		<a class="pull-right" style="color:black" href="/blog/editcomment/{{post.key().id()}}/{{c.key().id()}}"><i class="fa fa-pencil-square-o aria-hidden="true"></i></a>
+							</div>
+            			</header>
+						<div class="comment-post">
+            				<p><h6>{{ c.comment }}</h6></p>
+            			</div>
+		            </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% if self.user %}
+<h5 class="text-right">Not, {{username}}? </h2> <a href="/logout">Logout</a>
+{% endif %}
+
+{% block viewall %}
+<h4 class="text-center"><a href="/">View All Posts</a></h4>
+{% endblock %}

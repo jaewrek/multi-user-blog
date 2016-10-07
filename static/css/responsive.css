@@ -1,0 +1,66 @@
+/* Responsive CSS document with media queries.
+	Breakpoints @650px and @ 1000px */
+
+
+@media only screen and (max-width: 650px) {
+	.container {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.title-logo {
+		margin: auto;
+		margin-top: 20px;
+		height: 50px;
+		width: 50px;
+	}
+	.title-text {
+		text-align: center;
+	}
+	.project-picture {
+		margin: 0 auto;
+	}
+	.center-text {
+		text-align: center;
+	}
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width: 651px) {
+	.container {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.title-logo {
+		height: 75px;
+		width: 75px;
+		float: left;
+	}
+	.title-text {
+		text-align: right;
+	}
+	.project-picture {
+		margin: 0 auto;
+	}
+	.center-text {
+		text-align: center;
+	}
+	.half {
+		max-width: 100%;
+	}
+	.section-flex {
+		display: flex;
+		flex-flow: row wrap;	
+	}
+	.proj1 {
+		width: 50%;
+		order: -1;
+	}
+	.proj2 {
+		width: 100%;
+		order: 1;
+	}
+	.proj3 {
+		width: 50%;
+	}
+
+}

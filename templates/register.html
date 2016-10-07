@@ -1,0 +1,56 @@
+<!-- Display form with fields to capture registration information -->
+{% extends "base.html" %}
+
+{% block register %}
+ <h5 style="margin-left: auto">Register</h5>
+    <form method="post">
+      <table style="margin-left: auto">
+        <tr>
+          <td style="color: red" class="error">
+            {{error_username}}
+          </td>
+          <td class="label" style="color: black">
+            Username
+          </td>
+          <td>
+            <input type="text" name="username" value="{{username}}">
+          </td>  
+        </tr>
+        <tr>
+          <td class="error" style="color: red">
+            {{error_password}}
+          </td>
+          <td class="label" style="color: black">
+            Password
+          </td>
+          <td>
+            <input type="password" name="password" value="">
+          </td>
+        </tr>
+        <tr>
+        <td class="error" style="color: red">
+            {{error_verify}}
+          </td>
+          <td class="label" style="color: black">
+            Verify Password
+          </td>
+          <td>
+            <input type="password" name="verify" value="">
+          </td>
+        </tr>
+        <tr>
+         <td class="error" style="color: red">
+            {{error_email}}
+          </td>
+          <td class="label" style="color: black">
+            Email (optional)
+          </td>
+          <td>
+            <input type="text" name="email" value="{{email}}">
+          </td>
+        </tr>
+      </table>
+      <input type="submit">
+    </form>
+    Already a member?  <a href="/login">Log In!</a>
+{% endblock %}

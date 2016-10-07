@@ -1,0 +1,22 @@
+<!-- Form to Edit Post -->
+{% extends "base.html" %}
+
+{% block newpost %}
+  <form class="row text-center" style="margin-left:auto; margin-right: auto;" method="post">
+    <div class="row" style="margin-left:auto; margin-right: auto;">
+      <h2>Subject</h2>
+        	<input class="row" type="text" name="subject" value="{{subject}}">
+    </div>
+		<div class="row">
+      <h3>Blog</h3>
+      <textarea rows="10" cols="100" class="row" name="content">{{content}}
+      </textarea>
+    </div>
+    <div class="error" style="color: red">{{error}}</div>
+    <input type="submit">
+ </form>
+{% endblock %}
+
+{% block logout %}
+<h5 class="text-right">Not, {{username}}? </h2> <a href="/logout">Logout</a>
+{% endblock %}

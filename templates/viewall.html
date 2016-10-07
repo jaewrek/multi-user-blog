@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block create %}
+<div class="container">
+	<h4 class="text-left">Create a New Post <a href="/blog/newpost">HERE</a></h4>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  {% for p in posts %}
+    {{ p.render() | safe }}
+    <br><br>
+  {% endfor %}
+
+{% endblock %}
+
+
+{% block logout %}
+<h5 class="text-right">Not, {{username}}? </h2> <a href="/logout">Logout</a>
+
+{% endblock %}
+
+
+
+
+

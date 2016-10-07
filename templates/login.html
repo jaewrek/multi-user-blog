@@ -1,0 +1,40 @@
+<!-- Display Log In Form -->
+{% extends "base.html" %}
+
+{% block login %}
+<h4>Login</h4>
+  <form method="post">
+    <table style="margin-left:auto">
+      <tr>
+        <td class="label" style="color: black">
+          Username
+        </td>
+        <td>
+          <input type="text" name="username" value="{{username}}">
+        </td>
+        </tr>
+        <tr>
+          <td class="label" style="color: black">
+            Password
+          </td>
+          <td>
+            <input type="password" name="password" value="">
+          </td>
+        </tr>
+      </table>
+
+      <div style="color:red" class="error">
+        {{error}}
+      </div>
+      <input type="submit">
+    </form>
+    	Not a member yet?
+			<a href="/register">Register</a>
+{% endblock %}
+
+
+
+
+
+
+

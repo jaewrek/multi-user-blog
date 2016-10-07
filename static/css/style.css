@@ -1,0 +1,81 @@
+* {
+font-family: 'Lato', sans-serif;
+}
+body {
+	color: #2d3c49;
+	font-weight: 300;
+}
+.text-muted {
+	color: #7d97ad;
+}
+.text-thin {
+	font-weight: 100;
+}
+.title-super {
+	font-size: 60px;
+}
+.title-logo {
+	margin-top: 50px;
+	height: 100px;
+	width: 100px;
+}
+.blog-banner {
+	width: 900px;
+	height: 150px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.footer-banner {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.title-text {
+	margin-top: 40px;
+}
+hr {
+	border: none;
+	height: 2px;
+	background-color: #7d97ad;
+}
+h3 {
+	color: #2d3c49;
+}
+.post-heading {
+	position: relative;
+	border-bottom: 3px solid #333;
+}
+.post-date {
+	position:absolute;
+	right: 0px;
+	bottom: 0px;
+	color: #999;
+}
+
+/* taken from http://bootsnipp.com/snippets/featured/comment-posts-layout */
+/*Comment List styles*/
+.comment-list .row {
+  margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  /*Panel-heading border radius*/
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  /*Panel-heading border radius*/
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  /*For wrapping text in thumbnail*/
+  word-wrap: break-word;
+}
