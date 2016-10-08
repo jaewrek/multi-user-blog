@@ -52,6 +52,13 @@ h3 {
 	bottom: 0px;
 	color: #999;
 }
+.float {
+	vertical-align: top;
+	float: right;
+}
+.relative {
+	position: relative !important;
+}
 
 /* taken from http://bootsnipp.com/snippets/featured/comment-posts-layout */
 /*Comment List styles*/

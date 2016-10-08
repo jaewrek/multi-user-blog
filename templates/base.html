@@ -17,22 +17,22 @@
 		<title>UDACITY BLOG</title>
 	</head>
 		<body>
-			<div class="container">
+			<div class="container relative">
 				<header class="row">
-					<div class="col-xs-2 half">
+					<div class="col-md-4 col-xs-2">
 						<a href="/"><img class="img-responsive title-logo" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAUNAAAAJGMyMjE0OTQxLTIzNDQtNDJhOC1hNWYzLWIxYWIzMTRkZWZlYw.png" alt="Udacity logo"></a>
 					</div>
-					<div class="col-xs-5 text-center text-uppercase title-text half">
+					<div class="col-xs-10 col-md-8 text-center text-uppercase title-text">
 						<h1 class="text-thin title-super text-left">UDACITY BLOG</h1>
 						<h4 class="text-left">Full Stack Forums</h4>
 					</div>
 
 					<!-- Display Register, Login, or Logout fields -->
-					<div class="col-xs-5 text-right half" id="login">
+					<div class="col-md-12 col-xs-12 text-right float" id="login">
 						{% block login %}
 						{% endblock %}
 						<br>
-						<span id="register">
+						<div class="float" id="register">
 							{% block register %}
 							{% endblock %}
 	
@@ -41,7 +41,7 @@
 
 							{% block front %}
 							{% endblock %}		
-						</span>
+						</div>
 					</div>
 				</header>
 			</div>

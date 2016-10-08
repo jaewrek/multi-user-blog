@@ -4,7 +4,7 @@ fullstack-nanodegree-blog-project
 # Multi-User-Blog Project
 by Jerrik
 
-Live version -
+Live version - https://udacitytestproject092016100.appspot.com/
 
 ## Descritpion
 A multi user blog created with python, GAE (google app engine), jinja2, and GQL.
@@ -13,14 +13,8 @@ You can register for a new account to begin creating posts and commenting/liking
 ## Install
 To run this code, you must first have the [Google App Engine SDK for Python](https://cloud.google.com/appengine/downloads) installed.
 
-Then you can either run the application through the GAE Launcher GUI
-  - File -> Add Existing Application
-  - Add project
-  - Click Browse
-  
-or through the command line
-  - Navigate to project directory
-  - Run `dev_appserver.py ./`
+Command Line
+  Run `dev_appserver.py ./`
 
 ## Contributions
 Open source, feel free to make additions/optmizations or visit and make a post!

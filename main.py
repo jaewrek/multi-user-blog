@@ -163,7 +163,10 @@ class Register(Handler):
 # Verify subject and content and create new Post
 class NewPost(Handler):
 	def get(self):
-		self.render("newpost.html", username = self.user.name)
+		if self.user:
+			self.render("newpost.html", username = self.user.name)
+		else:
+			self.render("front.html", error = "You need to be logged in to post!")
 
 	def post(self):
 		if not self.user:
@@ -195,7 +198,7 @@ class DeletePost(Handler):
 			else:
 				self.redirect("/blog/" +post_id+ "?error=You cannot delete this post.")
 		else:
-			self.render("login.html", error="You need to be logged in to delete posts.")
+			self.render("front.html", error="You need to be logged in to delete posts.")
 
 # Edit current Post
 class EditPost(Handler):
@@ -210,14 +213,17 @@ class EditPost(Handler):
 				self.redirect("/blog/" +post_id+ "?error=You cannot edit this post.")
 
 		else:
-			self.render("login.html", error="You need to be logged in to edit posts.")
+			self.render("front.html", error="You need to be logged in to edit posts.")
 
 	def post(self, post_id):
 		if not self.user:
 			self.redirect('/blog')
-
-		subject = self.request.get('subject')
-		content = self.request.get('content')
+		else: 
+			key = db.Key.from_path('Post', int(post_id), parent=blog_key())
+			post = db.get(key)
+			if post.user_id == self.user.key().id():
+				subject = self.request.get('subject')
+				content = self.request.get('content')
 
 		if subject and content:
 			key = db.Key.from_path('Post', int(post_id), parent=blog_key())
@@ -307,7 +313,7 @@ class DeleteComment(Handler):
 			else:
 				self.redirect("/blog/" +post_id+ "?error=You cannot delete this comment.")
 		else:
-			self.render("login.html", error="You need to be logged in to delete comments.")
+			self.render("front.html", error="You need to be logged in to delete comments.")
 
 # Edit current Comment
 class EditComment(Handler):
@@ -322,13 +328,17 @@ class EditComment(Handler):
 				self.redirect("/blog/" +post_id+ 
 							"?error= You cannot edit this comment.")
 		else:
-			self.render("login.html", error="You need to be logged in to edit comments.")
+			self.render("front.html", error="You need to be logged in to edit comments.")
 
 	def post(self, post_id, comment_id):
 		if not self.user:
-			self.redirect('/')
-
-		comment = self.request.get('comment')
+			self.render('login.html', error = "Log In to edit comments.")
+		else:
+			key = db.Key.from_path('Comment', int(comment_id),
+									parent=blog_key())
+			c = db.get(key)
+			if c.user_id == self.user.key().id():
+				comment = self.request.get('comment')
 
 		if comment:
 			key = db.Key.from_path('Comment',
